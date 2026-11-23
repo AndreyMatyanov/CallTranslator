@@ -1,0 +1,4 @@
+/.venv
+/diag.log
+/errors.log
+/__pycache__

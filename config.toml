@@ -1,0 +1,51 @@
+# Настройки Call Translator. После изменения — перезапустите run.bat
+
+[asr]
+model = "large-v3-turbo"   # для видеокарты NVIDIA: large-v3-turbo (быстро и точно), medium, small
+model_cpu = "small"        # если видеокарты нет или CUDA не завелась: small / base
+device = "auto"            # auto / cuda / cpu
+compute_type = "auto"      # auto(=float16) / int8_float16 (меньше видеопамяти)
+beam_size = 3              # 1 — быстрее, 5 — точнее
+
+[audio]
+their_language = "en"           # на каком языке говорит собеседник
+my_languages = ["ru", "en"]     # на каких языках говорите вы (определяется автоматически)
+# Микрофон, режим голосового ввода и источник звука собеседника удобнее выбирать
+# в окне настроек (⚙ или Ctrl+Alt+O) — они сохраняются в user_settings.json и важнее значений ниже.
+mic_device = ""                 # "" — микрофон по умолчанию; иначе часть названия (см. list_devices.bat)
+loopback_device = ""            # "" — динамики/наушники по умолчанию
+mic_enabled = true              # слушать ли микрофон при старте (Ctrl+Alt+M — переключить)
+silence_ms = 600                # пауза, после которой фраза считается законченной
+max_phrase_s = 12
+min_phrase_s = 0.4
+energy_threshold = 0.0          # 0 — авто; если ловит шум, поставьте 0.02–0.05
+partial_interval_s = 1.0        # черновик субтитров каждые N секунд; 0 — выключить
+
+[llm]
+url = "http://localhost:11434"
+model = "gemma3:4b"             # 8 ГБ видеопамяти; при 12+ ГБ лучше gemma3:12b или qwen2.5:14b
+context_lines = 3               # сколько прошлых реплик давать модели для понимания контекста
+
+[suggest]
+auto = false                    # true — подсказывать ответ после каждой фразы собеседника
+count = 3
+
+[overlay]
+width = 760
+height = 400
+font_size = 20
+opacity = 0.80
+max_lines = 6
+start_click_through = false
+hide_from_screen_share = true   # оверлей не виден собеседнику при демонстрации экрана
+
+[hotkeys]
+settings = "ctrl+alt+o"
+chat_region = "ctrl+alt+r"      # выбрать область текстового чата для перевода
+toggle_clickthrough = "ctrl+alt+t"
+suggest = "ctrl+alt+s"
+type = "ctrl+alt+i"
+toggle_mic = "ctrl+alt+m"
+toggle_visible = "ctrl+alt+h"
+clear = "ctrl+alt+c"
+quit = "ctrl+alt+q"

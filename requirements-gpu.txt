@@ -1,0 +1,3 @@
+# Библиотеки CUDA для faster-whisper на видеокартах NVIDIA (~1 ГБ)
+nvidia-cublas-cu12
+nvidia-cudnn-cu12==9.*
