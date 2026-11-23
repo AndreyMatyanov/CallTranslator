@@ -10,13 +10,13 @@
     "en"
   ],
   "passthrough": false,
-  "passthrough_device": "EV2207A (NVIDIA High Definition Audio)",
-  "suggest_mode": "every",
-  "about_me": "Разработчик на .NET",
+  "passthrough_device": "",
+  "suggest_mode": "questions",
+  "about_me": "",
   "ui": {
     "theme": "contrast",
-    "font_size": 23,
-    "opacity": 0.79,
+    "font_size": 20,
+    "opacity": 0.85,
     "max_lines": 5,
     "show_original": true,
     "show_sugg_ru": true

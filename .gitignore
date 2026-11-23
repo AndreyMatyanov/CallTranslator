@@ -3,3 +3,5 @@
 /errors.log
 /__pycache__
 /models
+/user_settings.json
+/overlay_state.json
